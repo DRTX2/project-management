@@ -24,12 +24,34 @@ through the development process.
 ├── 📂 app (Capa de Aplicación - Punto de entrada de Spring Boot)
 │ ├── Application.java → Clase principal con @SpringBootApplication
 
+
+
+├── 📂 **core**  → *(Dominio y lógica de negocio - NO depende de Spring)*
+│   ├── 📂 `model` → **Entidades (User, Project, Task, etc.)**
+│   ├── 📂 `ports` → **Interfaces (UserRepository, ProjectRepository, etc.)**
+│   ├── 📂 `usecase` → **Casos de uso (UserService, ProjectService, etc.)**
+│  
+├── 📂 **adapters**  → *(Infraestructura, conecta el dominio con el exterior)*
+│   ├── 📂 `persistence` → **Repositorios JPA, MongoDB, etc.**
+│   ├── 📂 `rest` → **Controladores REST (UserController, etc.)**
+│   ├── 📂 `messaging` → **Integración con Kafka, RabbitMQ, etc.**
+│   ├── 📂 `external` → **Conexiones a APIs externas**
+│  
+├── 📂 **config**  → *(Configuraciones de Spring y Beans)*
+│   ├── `ApplicationConfig.java` → **Beans generales (Mappers, Services, etc.)**
+│   ├── `SecurityConfig.java` → **Configuración de Spring Security / JWT**
+│  
+├── 📂 **app**  → *(Capa de Aplicación - Punto de entrada de Spring Boot)*
+│   ├── `HeavySpringApplication.java` → **Clase con `@SpringBootApplication`**
+
+
+
 ## Entities
 
 - User
     - ID
     - Name
-      - Email
+    - Email
     - Password
     - Role
     - Date of registration
