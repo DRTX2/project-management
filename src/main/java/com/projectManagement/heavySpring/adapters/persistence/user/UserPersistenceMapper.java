@@ -5,10 +5,10 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
-public interface UserMapper {
+public interface UserPersistenceMapper {
     // sirve para conversion automatica de objetos java. MapStruct genera código en tiempo de compilación para mapear objetos de un tipo a otro, eliminando la necesidad de escribir código repetitivo de conversión.
     // en este caso sera para User y UserEntity
-    UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
+    UserPersistenceMapper INSTANCE = Mappers.getMapper(UserPersistenceMapper.class);
     User toDomain(UserEntity entity);
     UserEntity toEntity(User domain);
 }

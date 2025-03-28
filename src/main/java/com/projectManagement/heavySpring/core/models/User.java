@@ -20,6 +20,13 @@ public class User {
         this.registrationDate = registrationDate;
     }
 
+    public void validate(){
+        if(password ==null || password.length()<8)
+            throw new IllegalArgumentException("Password must be at last 8 characters");
+        if(email==null || !email.contains("@") )
+            throw new IllegalArgumentException("Email not valid");
+    }
+
     public Long getId() {
         return id;
     }
