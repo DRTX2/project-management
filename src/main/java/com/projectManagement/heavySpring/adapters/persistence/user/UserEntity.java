@@ -2,6 +2,7 @@ package com.projectManagement.heavySpring.adapters.persistence.user;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -10,17 +11,20 @@ public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+
     String name;
     String email;
     String password;
     String role;
-    Date registrationDate;
+
+    @Column(nullable = false, updatable = false)
+    LocalDateTime registrationDate;
 //    List<Project> projects;
 
     public UserEntity() {
     }
 
-    public UserEntity(Long id, String name, String email, String password, String role, Date registrationDate) {
+    public UserEntity(Long id, String name, String email, String password, String role, LocalDateTime registrationDate) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -69,11 +73,11 @@ public class UserEntity {
         this.role = role;
     }
 
-    public Date getRegistrationDate() {
+    public LocalDateTime getRegistrationDate() {
         return registrationDate;
     }
 
-    public void setRegistrationDate(Date registrationDate) {
+    public void setRegistrationDate(LocalDateTime registrationDate) {
         this.registrationDate = registrationDate;
     }
 }

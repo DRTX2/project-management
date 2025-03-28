@@ -1,5 +1,6 @@
 package com.projectManagement.heavySpring.core.models;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class User {
@@ -8,10 +9,10 @@ public class User {
     String email;
     String password;
     String role;
-    Date registrationDate;
+    LocalDateTime registrationDate;
 //    List<Project> projects;
 
-    public User(Long id, String name, String email, String password, String role, Date registrationDate) {
+    public User(Long id, String name, String email, String password, String role, LocalDateTime registrationDate) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -67,11 +68,11 @@ public class User {
         this.role = role;
     }
 
-    public Date getRegistrationDate() {
+    public LocalDateTime getRegistrationDate() {
         return registrationDate;
     }
 
-    public void setRegistrationDate(Date registrationDate) {
+    public void setRegistrationDate(LocalDateTime registrationDate) {
         this.registrationDate = registrationDate;
     }
 }
